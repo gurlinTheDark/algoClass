@@ -50,28 +50,32 @@ What's the time complexity?
 
  */
 
-function Stack(capacity) {
-  // implement me...
+var Stack = function(){
+	this.storage = "";
 }
 
-Stack.prototype.push = function(value) {
-  // implement me...
-};
-// Time complexity:
+Stack.prototype.push = function(value){
+	this.storage= this.storage.concat("***", value); 
+  console.log("pushed");
+}
 
-Stack.prototype.pop = function() {
-  // implement me...
-};
-// Time complexity:
+Stack.prototype.pop = function(){
+	var item = this.storage.slice(this.storage.lastIndexOf('***')+3);
+    this.storage = this.storage.substring(0, this.storage.lastIndexOf("***"));
+     console.log("item:"+ item);
+    
+}
 
-Stack.prototype.peek = function() {
-  // implement me...
-};
-// Time complexity:
+Stack.prototype.size = function(){
+console.log(this.storage.match(/\*\*\*/g));
+		return this.storage.match(/\*\*\*/g);
+}
 
-Stack.prototype.count = function() {
-  // implement me...
-};
+Stack.prototype.peek = function(){
+  console.log(this.storage.slice(this.storage.lastIndexOf('***')+3));
+}
+var stest = new Stack();
+stest.push("alp");
 // Time complexity:
 
 
