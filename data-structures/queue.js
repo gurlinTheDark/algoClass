@@ -52,24 +52,42 @@ What's the time complexity?
 
 function Queue(capacity) {
   // implement me...
+  this.storage = [];
+  this.capacity= capacity;
 }
 
 Queue.prototype.enqueue = function(value) {
   // implement me...
+  if(this.storage.length<this.capacity){
+  this.storage.unshift(value);
+  console.log("successfully added")}
+  else {
+    console.log("sorry queue full");
+  }
+  
 };
 // Time complexity:
 
 Queue.prototype.dequeue = function() {
+  if(this.storage.length){
   // implement me...
+  console.log(this.storage.pop())
+  }
+  else{
+    console.log("queue empty");
+  }
+  
 };
 // Time complexity:
 
 Queue.prototype.peek = function() {
   // implement me...
+  console.log(this.storage[0]);
 };
 
 Queue.prototype.count = function() {
   // implement me...
+ console.log(this.storage.length);
 };
 // Time complexity:
 
